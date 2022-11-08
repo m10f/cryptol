@@ -102,7 +102,9 @@ library
   Build-tool-depends:  alex:alex, happy:happy
   hs-source-dirs:      src
 
-  Exposed-modules:     Cryptol.Parser,
+  Exposed-modules:     Cryptol,
+
+                       Cryptol.Parser,
                        Cryptol.Parser.Lexer,
                        Cryptol.Parser.Token,
                        Cryptol.Parser.Layout,
