@@ -32,7 +32,7 @@ import qualified Cryptol.Eval as Eval
 import qualified Cryptol.Utils.Logger as Logger
 import qualified Cryptol.TypeCheck as TypeCheck
 import qualified Cryptol.TypeCheck.Solver.SMT as SMT
-import Cryptol.Utils.Ident (preludeName)
+import Cryptol.Utils.Ident (preludeName, floatName)
 import Cryptol.Eval.Value (GenValue(..))
 import qualified Control.Exception as Ex
 import qualified Cryptol.Utils.Ident as Ident
@@ -128,6 +128,10 @@ runCryptol' c =
 -- | Load the prelude.  Most modules will also automatically load the prelude.
 loadPrelude :: Cryptol ()
 loadPrelude =  void $ liftMS (MS.loadModuleByName preludeName)
+
+-- | Load in standard functions for working with floating point numbers.
+loadFloatFuncs :: Cryptol ()
+loadFloatFuncs = void $ liftMS (MS.loadModuleByName floatName)
 
 -- | Load a module from a file.
 loadModuleByPath :: FilePath -> Cryptol ()
