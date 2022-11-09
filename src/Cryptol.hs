@@ -122,7 +122,7 @@ withDefaultModuleInput f =
 --   the default configurations.  Also automatically loads the prelude.
 runCryptol' :: Cryptol a -> IO a
 runCryptol' c =
-  fst <$> withDefaultModuleInput (runCryptol (loadPrelude >> c))
+  fst <$> withDefaultModuleInput (runCryptol (loadPrelude >> loadFloatFuncs >> c))
 
 
 -- | Load the prelude.  Most modules will also automatically load the prelude.
